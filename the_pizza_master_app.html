@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AURA | Online Menu & WhatsApp Ordering</title>
-    <meta name="description" content="Order delicious gourmet burgers, wraps, visionary tacos, fries, pasta, sandwiches, desserts & drinks from AURA Lahore. Direct WhatsApp Delivery!">
+    <title>WRAP CITY | Official Online Menu & WhatsApp Ordering</title>
+    <meta name="description" content="Order signature crunch wraps, majnoon fries, gourmet burgers, sandwiches & drinks from WRAP CITY. Fast WhatsApp delivery!">
     
     <!-- Satoshi Font (Fontshare) -->
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,500,400,300&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons (Multi-CDN Fallback) -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" crossorigin="anonymous" />
     
@@ -20,31 +20,33 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            posterGreen: '#043224',
-                            posterGreenHover: '#02241a',
-                            posterGreenLight: '#eef6f2',
-                            posterGreenBorder: '#a3c9b8',
-                            dark: '#0f172a',
-                            muted: '#64748b',
-                            goldenBeigeBg: '#f3ebd9',
-                            goldenBeigeWhite: '#faf5e8',
-                            goldenBeigeCard: '#fefcf7',
-                            goldenBeigeCream: '#f5ede0',
-                            goldenBeigeBorder: '#e5d7c3',
-                            goldenBeigeInput: '#f2e8d4'
+                        theme: {
+                            offwhite: '#FAF7EE',
+                            offwhiteBg: '#F3EFE6',
+                            cardWhite: '#FFFFFF',
+                            cardMuted: '#F6F3EB',
+                            border: '#E8E2D2',
+                            yellow: '#FFC800',
+                            yellowHover: '#EBB800',
+                            yellowLight: '#FFF8DB',
+                            yellowBorder: '#F5D76E',
+                            black: '#0A0A0C',
+                            blackHover: '#18181C',
+                            darkCard: '#121215',
+                            darkCardBorder: '#23232A',
+                            mutedText: '#71717A'
                         }
                     },
                     fontFamily: {
                         sans: ['Satoshi', 'sans-serif'],
-                        display: ['Satoshi', 'sans-serif'],
-                        mono: ['Satoshi', 'sans-serif']
+                        display: ['Satoshi', 'sans-serif']
                     },
                     boxShadow: {
                         'soft': '0 4px 20px rgba(0, 0, 0, 0.04)',
-                        'card': '0 4px 15px rgba(4, 50, 36, 0.08)',
-                        'floating': '0 10px 30px rgba(4, 50, 36, 0.45)',
-                        'modal': '0 25px 60px -15px rgba(15, 23, 42, 0.25)'
+                        'card': '0 4px 15px rgba(10, 10, 12, 0.06)',
+                        'floating': '0 10px 30px rgba(10, 10, 12, 0.35)',
+                        'yellowGlow': '0 4px 18px rgba(255, 200, 0, 0.4)',
+                        'modal': '0 25px 60px -15px rgba(10, 10, 12, 0.35)'
                     }
                 }
             }
@@ -58,9 +60,9 @@
         }
 
         body {
-            background-color: #f3ebd9;
+            background-color: #F3EFE6;
             font-family: 'Satoshi', sans-serif;
-            color: #0f172a;
+            color: #0A0A0C;
             min-height: 100vh;
             margin: 0;
             padding: 0;
@@ -68,7 +70,7 @@
             justify-content: center;
         }
 
-        /* Ensure FontAwesome font family is not overwritten by global Satoshi font */
+        /* Ensure FontAwesome icons render accurately */
         .fa, .fas, .far, .fal, .fab, .fa-solid, .fa-regular, .fa-brands {
             font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif !important;
         }
@@ -79,14 +81,14 @@
         .app-wrapper {
             width: 100%;
             max-width: 480px;
-            background-color: #faf5e8;
+            background-color: #FAF7EE;
             min-height: 100vh;
             position: relative;
-            box-shadow: 0 0 50px rgba(140, 110, 50, 0.08);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.08);
             display: flex;
             flex-direction: column;
-            border-left: 1px solid #e5d7c3;
-            border-right: 1px solid #e5d7c3;
+            border-left: 1px solid #E8E2D2;
+            border-right: 1px solid #E8E2D2;
         }
 
         @media (min-width: 1024px) {
@@ -104,17 +106,17 @@
             scrollbar-width: none;
         }
 
-        /* UNIFIED POSTER DARK GREEN ACCENT ON ACTIVE CATEGORY PILL */
+        /* Active Category Pill Style */
         .category-pill.active {
-            background: linear-gradient(135deg, #043224 0%, #02241a 100%);
-            color: #fefcf7 !important;
-            box-shadow: 0 6px 18px rgba(4, 50, 36, 0.35);
-            border-color: #043224;
-            font-weight: 800;
+            background: #0A0A0C;
+            color: #FFC800 !important;
+            box-shadow: 0 4px 14px rgba(10, 10, 12, 0.25);
+            border-color: #0A0A0C;
+            font-weight: 600;
         }
 
-        .category-pill.active .cat-icon {
-            transform: scale(1.15);
+        .category-pill.active span {
+            color: #FFC800 !important;
         }
 
         .cart-badge-anim {
@@ -133,25 +135,21 @@
             overflow: hidden;
         }
 
-        /* Golden Beige White Glassmorphism Header & Single-Intensity Cards */
+        /* Glassmorphism Header & Cards in Off-White, Yellow & Black */
         .glass-header {
-            background: rgba(250, 245, 232, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(250, 247, 238, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
 
         .glass-card-light {
-            background: rgba(254, 252, 247, 0.72) !important;
-            backdrop-filter: blur(12px) !important;
-            -webkit-backdrop-filter: blur(12px) !important;
-            border: 1px solid rgba(229, 215, 195, 0.85) !important;
+            background: #FFFFFF !important;
+            border: 1px solid #E8E2D2 !important;
         }
 
         .glass-card-dark {
-            background: rgba(4, 50, 36, 0.82) !important;
-            backdrop-filter: blur(12px) !important;
-            -webkit-backdrop-filter: blur(12px) !important;
-            border: 1px solid rgba(2, 36, 26, 0.4) !important;
+            background: #0A0A0C !important;
+            border: 1px solid #23232A !important;
         }
 
         /* Custom Scrollbar */
@@ -159,33 +157,33 @@
             width: 5px;
         }
         ::-webkit-scrollbar-thumb {
-            background: #d9ccb6;
+            background: #D5CEBD;
             border-radius: 4px;
         }
     </style>
 </head>
-<body class="selection:bg-[#043224] selection:text-white">
+<body class="selection:bg-[#FFC800] selection:text-black">
 
     <div class="app-wrapper pb-32">
         
-        <!-- TOP STICKY HEADER (GOLDEN BEIGE WHITE & POSTER DARK GREEN LOGO) -->
-        <header class="sticky top-0 z-40 glass-header border-b border-[#e5d7c3] transition-all duration-200 pt-2 sm:pt-3">
+        <!-- TOP STICKY HEADER (TEXT ONLY: WRAP CITY, NO SHAPE LOGO) -->
+        <header class="sticky top-0 z-40 glass-header border-b border-[#E8E2D2] transition-all duration-200 pt-2 sm:pt-3">
             <!-- Brand & Quick Actions (WhatsApp & Call) -->
             <div class="px-4 pt-3 pb-2.5 flex items-center justify-between gap-3">
                 <div class="flex items-center gap-2">
                     <div>
                         <div class="flex items-center gap-2">
-                            <!-- POSTER DARK GREEN LOGO: AURA -->
-                            <h1 class="font-display font-black text-2xl text-[#043224] leading-none tracking-tight uppercase">
-                                AURA
+                            <!-- TEXT ONLY: WRAP CITY -->
+                            <h1 class="font-bold text-xl tracking-normal text-[#0A0A0C] uppercase leading-none">
+                                WRAP CITY
                             </h1>
-                            <span id="storeStatusBadge" class="inline-flex items-center gap-1 bg-[#eef6f2] border border-[#a3c9b8] text-[#043224] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#043224] animate-pulse"></span>
+                            <span id="storeStatusBadge" class="inline-flex items-center gap-1 bg-[#FFF8DB] border border-[#F5D76E] text-[#0A0A0C] text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#FFC800] animate-pulse"></span>
                                 Open Now
                             </span>
                         </div>
-                        <p class="text-[11px] text-slate-600 font-medium mt-1 flex items-center gap-1">
-                            <i class="fa-regular fa-clock text-[10px] text-[#043224]"></i> House of Thinkers • Wapda Town Phase 1
+                        <p class="text-[11px] text-zinc-600 font-normal mt-1 flex items-center gap-1">
+                            <i class="fa-solid fa-fire text-[10px] text-[#FFC800]"></i> Fresh Wraps, Fries & Gourmet Burgers
                         </p>
                     </div>
                 </div>
@@ -193,11 +191,11 @@
                 <!-- Quick Action Buttons: Call & WhatsApp -->
                 <div class="flex items-center gap-2 shrink-0">
                     <!-- Call Button -->
-                    <a href="tel:+923330654609" title="Call AURA House of Thinkers" class="w-9 h-9 rounded-full bg-[#f2e8d4] hover:bg-[#e9deb8] border border-[#dfcfb5] text-[#043224] flex items-center justify-center text-sm shadow-sm active:scale-95 transition">
+                    <a href="tel:03294355677" title="Call Wrap City" class="w-9 h-9 rounded-full bg-white hover:bg-[#FFF8DB] border border-[#E8E2D2] text-[#0A0A0C] flex items-center justify-center text-sm shadow-sm active:scale-95 transition">
                         <i class="fa-solid fa-phone"></i>
                     </a>
                     <!-- WhatsApp Button -->
-                    <a href="https://wa.me/923330654609" target="_blank" title="WhatsApp Chat" class="w-9 h-9 rounded-full bg-[#043224] hover:bg-[#02241a] text-white flex items-center justify-center text-base shadow-md shadow-[#043224]/25 active:scale-95 transition">
+                    <a href="https://wa.me/923294355677" target="_blank" title="WhatsApp Chat" class="w-9 h-9 rounded-full bg-[#0A0A0C] hover:bg-[#18181C] text-[#FFC800] border border-[#23232A] flex items-center justify-center text-base shadow-md active:scale-95 transition">
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
                 </div>
@@ -206,15 +204,15 @@
             <!-- Search Input Box -->
             <div class="px-4 pb-2.5">
                 <div class="relative flex items-center">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-[#043224]/60 text-sm"></i>
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-zinc-400 text-sm"></i>
                     <input 
                         type="text" 
                         id="searchInput" 
-                        placeholder="Search menu (e.g. burger, tacos, wrap, fries, margarita)..." 
-                        class="w-full bg-[#f3ead8] text-slate-900 text-xs font-medium placeholder-slate-400 pl-9 pr-8 py-2.5 rounded-xl border border-[#dfcfb5] focus:outline-none focus:border-[#043224] focus:ring-2 focus:ring-[#043224]/20 transition shadow-inner"
+                        placeholder="Search menu (e.g. majnoon, zinger, crunch wrap, fries)..." 
+                        class="w-full bg-white text-zinc-900 text-xs font-normal placeholder-zinc-400 pl-9 pr-8 py-2.5 rounded-xl border border-[#E8E2D2] focus:outline-none focus:border-[#0A0A0C] focus:ring-2 focus:ring-[#FFC800]/40 transition shadow-inner"
                         oninput="handleSearch(this.value)"
                     >
-                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 text-slate-400 hover:text-slate-700">
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 text-zinc-400 hover:text-zinc-700">
                         <i class="fa-solid fa-circle-xmark text-sm"></i>
                     </button>
                 </div>
@@ -226,119 +224,150 @@
             </div>
         </header>
 
-        <!-- HERO HIGHLIGHT CAROUSEL / FEATURED SPECIAL (THE BIG POSTER WITH DARK GREEN BG) -->
+        <!-- HERO HIGHLIGHT BANNER (OFF-WHITE, YELLOW & BLACK THEME) -->
         <div class="px-4 py-3" id="heroBanner">
-            <div class="glass-card-dark rounded-2xl p-4 text-white relative overflow-hidden shadow-md flex items-center justify-between">
+            <div class="glass-card-dark rounded-2xl p-4 text-white relative overflow-hidden shadow-md flex items-center justify-between border border-[#23232A]">
                 <div class="relative z-10 max-w-[62%]">
-                    <span class="bg-[#02241a] text-[#f2e8d4] border border-[#043224] text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md inline-block mb-1 shadow-sm">
-                        AURA SIGNATURE
+                    <span class="bg-[#FFC800] text-[#0A0A0C] font-semibold text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-md inline-block mb-1 shadow-sm">
+                        WRAP CITY SPECIAL
                     </span>
-                    <h3 class="font-display text-base font-black leading-tight text-white drop-shadow-sm">
-                        Visionary Mexican Tacos
+                    <h3 class="font-semibold text-base leading-tight text-white drop-shadow-sm">
+                        Majnoon Wrap
                     </h3>
-                    <p class="text-[11px] text-[#f2e8d4]/90 font-medium mt-0.5 mb-2.5 line-clamp-2">
-                        Authentic Mexican style tacos packed with seasoned chicken, salsa & special cream!
+                    <p class="text-[11px] text-zinc-300 font-normal mt-0.5 mb-2.5 line-clamp-2">
+                        Grilled chicken chunks with a saucy Arabian twist — majnoon in every bite!
                     </p>
-                    <button onclick="openItemModalById('visionary_tacos')" class="bg-[#02241a] hover:bg-[#011711] text-[#fefcf7] text-xs font-black px-3.5 py-1.5 rounded-xl shadow-md active:scale-95 transition flex items-center gap-1.5 border border-[#043224]">
-                        Order For PKR 870/- <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    <button onclick="openItemModalById('majnoon_wrap')" class="bg-[#FFC800] hover:bg-[#EBB800] text-[#0A0A0C] text-xs font-semibold px-3.5 py-1.5 rounded-xl shadow-md active:scale-95 transition flex items-center gap-1.5">
+                        Order Now <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </button>
                 </div>
                 <div class="relative z-10 shrink-0 w-28 h-28 -mr-2">
                     <img 
-                        src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=300&q=80" 
-                        alt="Visionary Mexican Tacos"
-                        class="w-full h-full object-cover rounded-2xl shadow-xl rotate-3 border-2 border-[#02241a]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=300&q=80'"
+                        src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=300&q=80" 
+                        alt="Majnoon Wrap"
+                        class="w-full h-full object-cover rounded-2xl shadow-xl rotate-3 border-2 border-[#FFC800]" 
+                        onerror="this.onerror=null; this.src='images/shawarma.jpg'"
                     >
                 </div>
             </div>
         </div>
 
+        <!-- END OF FIRST SCREEN DESIGNER LINK BANNER -->
+        <div class="px-4 pb-2">
+            <a 
+                href="https://wa.me/923294355677" 
+                target="_blank" 
+                title="Contact Talha Muzammil on WhatsApp" 
+                class="w-full py-2.5 px-4 rounded-xl bg-white border border-[#E8E2D2] hover:border-[#FFC800] flex items-center justify-between text-xs text-zinc-800 shadow-sm transition hover:bg-[#FFF8DB] active:scale-[0.99] group"
+            >
+                <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-[#0A0A0C] text-[#FFC800] flex items-center justify-center text-[10px]">
+                        <i class="fa-solid fa-code"></i>
+                    </span>
+                    <span class="text-zinc-700 font-normal">Designed by <strong class="text-black font-semibold">Talha Muzammil</strong></span>
+                </div>
+                <div class="flex items-center gap-1.5 text-xs text-[#0A0A0C] font-normal">
+                    <span class="text-[11px] text-zinc-500 underline underline-offset-2 group-hover:text-black">Click to Contact</span>
+                    <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+                </div>
+            </a>
+        </div>
+
         <!-- SEARCH / CATEGORY STATUS HEADER -->
         <div id="sectionHeaderBar" class="px-4 pt-2 pb-1 flex items-center justify-between">
-            <h2 class="text-sm font-black text-slate-900 font-display flex items-center gap-2" id="currentSectionTitle">
+            <h2 class="text-sm font-semibold text-[#0A0A0C] flex items-center gap-2" id="currentSectionTitle">
                 All Menu Items
             </h2>
-            <span id="currentSectionBadge" class="text-[11px] font-bold text-[#043224] bg-[#f2e8d4] px-2.5 py-0.5 rounded-full border border-[#dfcfb5]">
+            <span id="currentSectionBadge" class="text-[11px] font-medium text-[#0A0A0C] bg-[#FFF8DB] px-2.5 py-0.5 rounded-full border border-[#F5D76E]">
                 Full Menu
             </span>
         </div>
 
         <!-- MAIN PRODUCTS CONTAINER -->
-        <main class="px-4 space-y-4 pt-1" id="menuContainer">
+        <main class="px-4 space-y-3 pt-1" id="menuContainer">
             <!-- Rendered by JavaScript -->
         </main>
 
         <!-- EMPTY SEARCH STATE -->
         <div id="emptySearchState" class="hidden py-16 text-center px-4">
-            <div class="w-16 h-16 bg-[#f2e8d4] text-[#043224] border border-[#dfcfb5] rounded-full flex items-center justify-center mx-auto text-2xl mb-3">
+            <div class="w-16 h-16 bg-[#FFF8DB] text-[#0A0A0C] border border-[#F5D76E] rounded-full flex items-center justify-center mx-auto text-2xl mb-3">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <h3 class="font-bold text-slate-900 text-base">No items found</h3>
-            <p class="text-xs text-slate-500 mt-1 max-w-xs mx-auto">We couldn't find anything matching your search. Try searching for "burger", "tacos", "wrap", "fries", or "margarita".</p>
-            <button onclick="clearSearch()" class="mt-4 bg-[#043224] hover:bg-[#02241a] text-white text-xs font-black px-4 py-2 rounded-xl shadow-sm">
+            <h3 class="font-semibold text-zinc-900 text-base">No items found</h3>
+            <p class="text-xs text-zinc-500 mt-1 max-w-xs mx-auto">We couldn't find anything matching your search. Try searching for "majnoon", "crunch", "fries", or "zinger".</p>
+            <button onclick="clearSearch()" class="mt-4 bg-[#0A0A0C] hover:bg-[#18181C] text-[#FFC800] text-xs font-semibold px-4 py-2 rounded-xl shadow-sm">
                 Show Full Menu
             </button>
         </div>
 
-        <!-- STORE INFO BANNER / STATS (MOVED TO BOTTOM END OF HOME PAGE) -->
+        <!-- STORE INFO BANNER / FOOTER -->
         <div class="px-4 pt-6 pb-28" id="storeInfoBanner">
-            <div class="glass-card-dark rounded-2xl p-4 text-white shadow-md relative overflow-hidden">
-                <div class="absolute -right-8 -bottom-8 w-36 h-36 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="glass-card-dark rounded-2xl p-4 text-white shadow-md relative overflow-hidden border border-[#23232A]">
+                <div class="absolute -right-8 -bottom-8 w-36 h-36 bg-[#FFC800]/10 rounded-full blur-2xl pointer-events-none"></div>
                 <div class="relative z-10">
                     <div class="flex items-start justify-between gap-2 mb-2.5">
                         <div>
-                            <div class="flex items-center gap-1.5 text-xs font-bold text-[#f2e8d4] uppercase tracking-wide mb-0.5">
-                                <i class="fa-solid fa-location-dot text-white"></i> 92 H1, Wapda Town Phase 1, Lahore
+                            <div class="flex items-center gap-1.5 text-xs font-semibold text-[#FFC800] uppercase tracking-wide mb-0.5">
+                                <i class="fa-solid fa-fire text-[#FFC800]"></i> WRAP CITY
                             </div>
-                            <p class="text-[11px] text-white/90">AURA House of Thinkers • Gourmet Food & Thought Bar</p>
+                            <p class="text-[11px] text-zinc-300 font-normal">Fast Delivery • Quality Food • Endless Flavor</p>
                         </div>
-                        <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shrink-0 border border-white/30">
-                            +92 333 0654609
-                        </span>
+                        <a href="https://wa.me/923294355677" target="_blank" class="bg-[#FFC800] text-[#0A0A0C] text-[10px] font-semibold px-2.5 py-1 rounded-full shrink-0 flex items-center gap-1">
+                            <i class="fa-brands fa-whatsapp"></i> 0329-4355677
+                        </a>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-2 pt-2.5 border-t border-white/20 text-center text-[10px]">
-                        <div class="bg-white/10 backdrop-blur-sm rounded-xl py-1.5 px-1 border border-white/15">
-                            <span class="text-white block font-black text-xs">FAST</span>
-                            <span class="text-[#f2e8d4]">Home Delivery</span>
+                    <div class="grid grid-cols-3 gap-2 pt-2.5 border-t border-zinc-800 text-center text-[10px]">
+                        <div class="bg-white/5 rounded-xl py-1.5 px-1 border border-white/10">
+                            <span class="text-[#FFC800] block font-semibold text-xs">HOT & FRESH</span>
+                            <span class="text-zinc-300">Fast Delivery</span>
                         </div>
-                        <div class="bg-white/10 backdrop-blur-sm rounded-xl py-1.5 px-1 border border-white/15">
-                            <span class="text-white block font-black text-xs">GOURMET</span>
-                            <span class="text-[#f2e8d4]">Fresh Flavors</span>
+                        <div class="bg-white/5 rounded-xl py-1.5 px-1 border border-white/10">
+                            <span class="text-[#FFC800] block font-semibold text-xs">CRUNCH</span>
+                            <span class="text-zinc-300">Premium Taste</span>
                         </div>
-                        <div class="bg-white/10 backdrop-blur-sm rounded-xl py-1.5 px-1 border border-white/15">
-                            <span class="text-white block font-black text-xs">0333-0654609</span>
-                            <span class="text-[#f2e8d4]">Order Hotline</span>
+                        <div class="bg-white/5 rounded-xl py-1.5 px-1 border border-white/10">
+                            <span class="text-[#FFC800] block font-semibold text-xs">ORDER</span>
+                            <span class="text-zinc-300">WhatsApp Chat</span>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <p class="text-[11px] text-slate-500 font-medium text-center mt-3">
-                © AURA House of Thinkers • 92 H1 Wapda Town Phase 1, Lahore
-            </p>
+            <!-- Clickable Developer Link at Footer -->
+            <div class="mt-4 text-center">
+                <a 
+                    href="https://wa.me/923294355677" 
+                    target="_blank" 
+                    class="inline-flex items-center gap-1.5 text-xs text-zinc-600 hover:text-black transition"
+                >
+                    <span>Designed by <strong class="text-black font-semibold">Talha Muzammil</strong> • Click to Contact</span>
+                    <i class="fa-brands fa-whatsapp text-emerald-600"></i>
+                </a>
+                <p class="text-[10px] text-zinc-400 mt-1 font-normal">© WRAP CITY • All Rights Reserved</p>
+            </div>
         </div>
 
-        <!-- FLOATING BOTTOM BASKET BAR (POSTER DARK GREEN ACCENT) -->
+        <!-- FLOATING BOTTOM BASKET BAR (YELLOW & BLACK THEME) -->
         <div id="floatingCartBar" class="fixed bottom-0 left-0 right-0 z-50 flex justify-center p-3 pointer-events-none transition-all duration-300 transform translate-y-24 opacity-0">
             <div class="w-full max-w-[480px] pointer-events-auto">
                 <button 
                     onclick="openCartDrawer()" 
-                    class="w-full glass-card-dark text-white rounded-2xl p-3.5 shadow-floating flex items-center justify-between active:scale-[0.98] transition"
+                    class="w-full glass-card-dark text-white rounded-2xl p-3.5 shadow-floating flex items-center justify-between active:scale-[0.98] transition border border-[#23232A]"
                 >
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-[#fefcf7] text-[#043224] flex items-center justify-center font-black text-sm relative shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-[#FFC800] text-[#0A0A0C] flex items-center justify-center font-semibold text-sm relative shadow-sm">
                             <i class="fa-solid fa-bag-shopping text-base"></i>
-                            <span id="floatingCartBadge" class="absolute -top-1.5 -right-1.5 bg-[#02241a] text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#fefcf7] shadow-sm">
+                            <span id="floatingCartBadge" class="absolute -top-1.5 -right-1.5 bg-[#0A0A0C] text-[#FFC800] text-[10px] font-semibold w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#FFC800] shadow-sm">
                                 0
                             </span>
                         </div>
                         <div class="text-left">
-                            <span class="text-[10px] font-bold text-[#f2e8d4] uppercase tracking-wider block">View Your Basket</span>
-                            <span class="text-base font-black tracking-tight text-white" id="floatingCartTotal">PKR 0/-</span>
+                            <span class="text-[10px] font-normal text-zinc-400 uppercase tracking-wider block">View Your Basket</span>
+                            <span class="text-sm font-semibold tracking-normal text-[#FFC800]" id="floatingCartTotal">Rs. 0</span>
                         </div>
                     </div>
-                    <div class="flex items-center gap-2 font-black text-xs bg-[#fefcf7] text-[#043224] px-3.5 py-2 rounded-xl shadow-sm hover:bg-[#f5ede0] transition">
+                    <div class="flex items-center gap-2 font-semibold text-xs bg-[#FFC800] text-[#0A0A0C] px-4 py-2 rounded-xl shadow-sm hover:bg-[#EBB800] transition">
                         <span>Checkout</span>
                         <i class="fa-solid fa-chevron-right text-[10px]"></i>
                     </div>
@@ -349,21 +378,21 @@
     </div>
 
     <!-- ITEM DETAIL / CUSTOMIZATION MODAL -->
-    <div id="itemModal" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-slate-900/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
-        <div class="w-full max-w-[480px] bg-[#faf5e8] border border-[#e5d7c3] rounded-t-[32px] sm:rounded-3xl max-h-[90vh] flex flex-col shadow-modal transform translate-y-full transition-transform duration-300" id="itemModalCard">
+    <div id="itemModal" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+        <div class="w-full max-w-[480px] bg-[#FAF7EE] border border-[#E8E2D2] rounded-t-[32px] sm:rounded-3xl max-h-[90vh] flex flex-col shadow-modal transform translate-y-full transition-transform duration-300" id="itemModalCard">
             <!-- Modal Header with Image -->
-            <div class="relative h-48 sm:h-52 w-full shrink-0 bg-slate-100 rounded-t-[32px] sm:rounded-t-3xl overflow-hidden">
+            <div class="relative h-48 sm:h-52 w-full shrink-0 bg-zinc-900 rounded-t-[32px] sm:rounded-t-3xl overflow-hidden">
                 <img id="modalItemImage" src="" alt="Food Item" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80'">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                <button onclick="closeItemModal()" class="absolute top-4 right-4 w-9 h-9 bg-[#fefcf7]/90 hover:bg-[#fefcf7] text-slate-800 rounded-full flex items-center justify-center backdrop-blur-md transition border border-[#e5d7c3] shadow-sm">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                <button onclick="closeItemModal()" class="absolute top-4 right-4 w-9 h-9 bg-white/90 hover:bg-white text-black rounded-full flex items-center justify-center backdrop-blur-md transition border border-zinc-300 shadow-sm">
                     <i class="fa-solid fa-xmark text-base"></i>
                 </button>
                 <div class="absolute bottom-3 left-4 right-4 text-white">
-                    <span id="modalItemCategoryBadge" class="text-[10px] font-black uppercase bg-[#043224] text-white px-2 py-0.5 rounded-md inline-block mb-1 shadow-sm">
+                    <span id="modalItemCategoryBadge" class="text-[10px] font-semibold uppercase bg-[#FFC800] text-[#0A0A0C] px-2 py-0.5 rounded-md inline-block mb-1 shadow-sm">
                         Category
                     </span>
-                    <h3 id="modalItemTitle" class="font-display font-black text-xl leading-tight text-white drop-shadow-sm">Item Name</h3>
-                    <p id="modalItemDesc" class="text-xs text-slate-200 line-clamp-2 mt-0.5">Item description goes here</p>
+                    <h3 id="modalItemTitle" class="font-semibold text-lg sm:text-xl leading-tight text-white drop-shadow-sm">Item Name</h3>
+                    <p id="modalItemDesc" class="text-xs text-zinc-300 font-normal line-clamp-2 mt-0.5">Item description goes here</p>
                 </div>
             </div>
 
@@ -373,42 +402,42 @@
             </div>
 
             <!-- Modal Footer (Quantity & Add to Cart) -->
-            <div class="p-4 border-t border-[#e5d7c3] bg-[#f5ede0] rounded-b-[32px] sm:rounded-b-3xl flex items-center justify-between gap-3">
+            <div class="p-4 border-t border-[#E8E2D2] bg-[#F3EFE6] rounded-b-[32px] sm:rounded-b-3xl flex items-center justify-between gap-3">
                 <!-- Qty buttons -->
-                <div class="flex items-center bg-[#fefcf7] rounded-xl border border-[#dfcfb5] p-1 shadow-sm">
-                    <button onclick="changeModalQty(-1)" class="w-8 h-8 rounded-lg bg-[#f3ead8] hover:bg-[#ebdcc4] text-slate-800 flex items-center justify-center text-xs font-bold active:scale-95 transition">
+                <div class="flex items-center bg-white rounded-xl border border-[#E8E2D2] p-1 shadow-sm">
+                    <button onclick="changeModalQty(-1)" class="w-8 h-8 rounded-lg bg-[#FAF7EE] hover:bg-[#E8E2D2] text-black flex items-center justify-center text-xs font-semibold active:scale-95 transition">
                         <i class="fa-solid fa-minus"></i>
                     </button>
-                    <span id="modalQtyDisplay" class="w-8 text-center font-black text-sm text-[#043224]">1</span>
-                    <button onclick="changeModalQty(1)" class="w-8 h-8 rounded-lg bg-[#043224] text-white flex items-center justify-center text-xs font-black active:scale-95 transition">
+                    <span id="modalQtyDisplay" class="w-8 text-center font-semibold text-sm text-[#0A0A0C]">1</span>
+                    <button onclick="changeModalQty(1)" class="w-8 h-8 rounded-lg bg-[#0A0A0C] text-[#FFC800] flex items-center justify-center text-xs font-semibold active:scale-95 transition">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </div>
 
                 <!-- Add Button -->
-                <button id="modalAddToCartBtn" onclick="confirmAddToCart()" class="flex-1 bg-[#043224] hover:bg-[#02241a] text-white font-black text-xs py-3.5 px-4 rounded-xl shadow-md flex items-center justify-between active:scale-[0.98] transition">
+                <button id="modalAddToCartBtn" onclick="confirmAddToCart()" class="flex-1 bg-[#0A0A0C] hover:bg-[#18181C] text-[#FFC800] font-semibold text-xs py-3.5 px-4 rounded-xl shadow-md flex items-center justify-between active:scale-[0.98] transition border border-[#23232A]">
                     <span>Add To Order</span>
-                    <span id="modalFinalPrice" class="bg-white/20 px-2 py-0.5 rounded-lg text-white font-extrabold">PKR 0/-</span>
+                    <span id="modalFinalPrice" class="bg-[#FFC800] px-2 py-0.5 rounded-lg text-[#0A0A0C] font-semibold">Rs. 0</span>
                 </button>
             </div>
         </div>
     </div>
 
     <!-- CART & CHECKOUT DRAWER -->
-    <div id="cartDrawer" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-slate-900/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
-        <div class="w-full max-w-[480px] bg-[#faf5e8] border border-[#e5d7c3] rounded-t-[32px] sm:rounded-3xl max-h-[92vh] h-full flex flex-col shadow-modal transform translate-y-full transition-transform duration-300" id="cartDrawerCard">
+    <div id="cartDrawer" class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+        <div class="w-full max-w-[480px] bg-[#FAF7EE] border border-[#E8E2D2] rounded-t-[32px] sm:rounded-3xl max-h-[92vh] h-full flex flex-col shadow-modal transform translate-y-full transition-transform duration-300" id="cartDrawerCard">
             <!-- Header -->
-            <div class="px-4 py-3.5 border-b border-[#e5d7c3] flex items-center justify-between bg-[#f5ede0] rounded-t-[32px] sm:rounded-t-3xl">
+            <div class="px-4 py-3.5 border-b border-[#E8E2D2] flex items-center justify-between bg-[#F3EFE6] rounded-t-[32px] sm:rounded-t-3xl">
                 <div class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-full bg-[#eef6f2] border border-[#a3c9b8] text-[#043224] flex items-center justify-center text-sm">
+                    <div class="w-8 h-8 rounded-full bg-[#0A0A0C] text-[#FFC800] flex items-center justify-center text-sm shadow-sm">
                         <i class="fa-solid fa-bag-shopping"></i>
                     </div>
                     <div>
-                        <h3 class="font-display font-black text-base text-slate-900">Your Order Basket</h3>
-                        <span id="drawerItemCountText" class="text-[11px] text-slate-500 font-medium">0 items selected</span>
+                        <h3 class="font-semibold text-base text-zinc-900">Your Order Basket</h3>
+                        <span id="drawerItemCountText" class="text-[11px] text-zinc-500 font-normal">0 items selected</span>
                     </div>
                 </div>
-                <button onclick="closeCartDrawer()" class="w-8 h-8 rounded-full bg-[#f3ead8] text-slate-700 hover:bg-[#e9deb8] flex items-center justify-center transition border border-[#dfcfb5]">
+                <button onclick="closeCartDrawer()" class="w-8 h-8 rounded-full bg-white text-zinc-700 hover:bg-zinc-100 flex items-center justify-center transition border border-[#E8E2D2]">
                     <i class="fa-solid fa-xmark text-sm"></i>
                 </button>
             </div>
@@ -422,122 +451,122 @@
 
                 <!-- Empty Cart View -->
                 <div id="emptyCartView" class="hidden py-12 text-center">
-                    <div class="w-16 h-16 bg-[#f2e8d4] text-[#043224] border border-[#dfcfb5] rounded-full flex items-center justify-center mx-auto text-2xl mb-3">
+                    <div class="w-16 h-16 bg-[#FFF8DB] text-[#0A0A0C] border border-[#F5D76E] rounded-full flex items-center justify-center mx-auto text-2xl mb-3">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 text-base">Your basket is empty</h4>
-                    <p class="text-xs text-slate-500 mt-1 max-w-xs mx-auto">Explore our menu and add your favorite burgers, wraps, tacos, pasta or drinks!</p>
-                    <button onclick="closeCartDrawer()" class="mt-4 bg-[#043224] text-white text-xs font-black px-5 py-2.5 rounded-xl shadow-md hover:bg-[#02241a]">
+                    <h4 class="font-semibold text-zinc-900 text-base">Your basket is empty</h4>
+                    <p class="text-xs text-zinc-500 mt-1 max-w-xs mx-auto">Explore the WRAP CITY menu and add signature wraps, loaded fries, burgers or drinks!</p>
+                    <button onclick="closeCartDrawer()" class="mt-4 bg-[#0A0A0C] text-[#FFC800] text-xs font-semibold px-5 py-2.5 rounded-xl shadow-md hover:bg-[#18181C]">
                         Browse Menu
                     </button>
                 </div>
 
                 <!-- Checkout Form & Details -->
-                <div id="checkoutFormSection" class="pt-2 space-y-3.5 border-t border-[#e5d7c3]">
-                    <h4 class="font-display font-bold text-xs uppercase tracking-wider text-[#043224] flex items-center gap-1.5">
-                        <i class="fa-solid fa-location-dot text-[#043224]"></i> Delivery Address & Payment
+                <div id="checkoutFormSection" class="pt-2 space-y-3.5 border-t border-[#E8E2D2]">
+                    <h4 class="font-semibold text-xs uppercase tracking-wider text-black flex items-center gap-1.5">
+                        <i class="fa-solid fa-location-dot text-[#FFC800]"></i> Delivery Address & Payment
                     </h4>
 
                     <!-- Delivery Address Input Field -->
                     <div class="space-y-2.5 text-xs">
                         <div id="addressFieldContainer">
-                            <label class="block text-slate-800 font-bold mb-1">
-                                Delivery Address & Landmark <span class="text-[#043224]">*</span>
+                            <label class="block text-zinc-800 font-semibold mb-1">
+                                Delivery Address & Landmark <span class="text-rose-600">*</span>
                             </label>
                             <textarea 
                                 id="custAddress" 
                                 rows="3" 
-                                placeholder="House #, Street #, Block / Phase (e.g. 92 H1, Wapda Town Phase 1, Lahore)" 
-                                class="w-full bg-[#f3ead8] text-slate-900 border-2 border-[#a3c9b8] focus:border-[#043224] rounded-xl px-3 py-2.5 text-xs focus:outline-none placeholder-slate-400 shadow-inner"
+                                placeholder="House #, Street #, Sector / Area (e.g. Street 4, Phase 2)" 
+                                class="w-full bg-white text-zinc-900 border border-[#E8E2D2] focus:border-[#0A0A0C] rounded-xl px-3 py-2.5 text-xs focus:outline-none placeholder-zinc-400 shadow-inner"
                             ></textarea>
                         </div>
 
                         <!-- Special Instructions -->
                         <div>
-                            <label class="block text-slate-700 font-semibold mb-1">Special Instructions (Optional)</label>
-                            <input type="text" id="custNotes" placeholder="e.g. Extra spicy, less mayo, call on arrival" class="w-full bg-[#f3ead8] text-slate-900 border border-[#dfcfb5] rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-[#043224]">
+                            <label class="block text-zinc-700 font-normal mb-1">Special Instructions (Optional)</label>
+                            <input type="text" id="custNotes" placeholder="e.g. Extra spicy, no mayo, call on arrival" class="w-full bg-white text-zinc-900 border border-[#E8E2D2] rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-[#0A0A0C]">
                         </div>
 
                         <!-- Payment Method Selector -->
                         <div>
-                            <label class="block text-slate-700 font-semibold mb-1">Select Payment Method</label>
-                            <select id="custPayment" onchange="handlePaymentChange(this.value)" class="w-full bg-[#f3ead8] text-slate-900 border border-[#dfcfb5] rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#043224] font-medium">
+                            <label class="block text-zinc-700 font-normal mb-1">Select Payment Method</label>
+                            <select id="custPayment" onchange="handlePaymentChange(this.value)" class="w-full bg-white text-zinc-900 border border-[#E8E2D2] rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#0A0A0C] font-normal">
                                 <option value="Cash on Delivery" selected>Cash on Delivery (COD)</option>
-                                <option value="Bank / EasyPaisa / JazzCash Transfer">Bank / EasyPaisa / JazzCash Transfer (Manual)</option>
+                                <option value="EasyPaisa / JazzCash / Bank Transfer">EasyPaisa / JazzCash / Bank Transfer</option>
                             </select>
                         </div>
 
                         <!-- PAYMENT ACCOUNTS DETAILS CARD WITH 1-CLICK COPY BUTTONS -->
-                        <div id="onlinePaymentCard" class="hidden bg-[#f5ede0] border-2 border-[#a3c9b8] rounded-2xl p-3.5 space-y-3 shadow-sm">
-                            <div class="flex items-center justify-between border-b border-[#e5d7c3] pb-2">
+                        <div id="onlinePaymentCard" class="hidden bg-white border-2 border-[#FFC800] rounded-2xl p-3.5 space-y-3 shadow-sm">
+                            <div class="flex items-center justify-between border-b border-[#E8E2D2] pb-2">
                                 <div class="flex items-center gap-2">
-                                    <span class="w-7 h-7 rounded-lg bg-[#043224] text-white flex items-center justify-center font-black text-xs">
+                                    <span class="w-7 h-7 rounded-lg bg-[#0A0A0C] text-[#FFC800] flex items-center justify-center font-semibold text-xs">
                                         <i class="fa-solid fa-building-columns"></i>
                                     </span>
                                     <div>
-                                        <h5 class="text-xs font-black text-slate-900">Manual Payment Transfer</h5>
-                                        <span class="text-[10px] text-slate-500">Account Title: <strong class="text-slate-900 font-bold">AURA House of Thinkers</strong></span>
+                                        <h5 class="text-xs font-semibold text-zinc-900">Manual Payment Transfer</h5>
+                                        <span class="text-[10px] text-zinc-500">Account: <strong class="text-zinc-900 font-semibold">WRAP CITY</strong></span>
                                     </div>
                                 </div>
-                                <span class="text-[9px] font-black uppercase tracking-wider bg-[#eef6f2] text-[#043224] border border-[#a3c9b8] px-2 py-0.5 rounded">
+                                <span class="text-[9px] font-semibold uppercase tracking-wider bg-[#FFF8DB] text-[#0A0A0C] border border-[#F5D76E] px-2 py-0.5 rounded">
                                     Active
                                 </span>
                             </div>
 
                             <!-- EasyPaisa / JazzCash / Mobile Account -->
-                            <div class="bg-[#fefcf7] p-2.5 rounded-xl border border-[#dfcfb5] flex items-center justify-between gap-2">
+                            <div class="bg-[#FAF7EE] p-2.5 rounded-xl border border-[#E8E2D2] flex items-center justify-between gap-2">
                                 <div class="min-w-0 flex-1">
-                                    <span class="text-[10px] text-slate-500 block font-medium">EasyPaisa / JazzCash • Title: AURA</span>
-                                    <span class="text-xs font-black text-[#043224] tracking-wider font-mono block" id="accNumber1">03330654609</span>
+                                    <span class="text-[10px] text-zinc-500 block font-normal">EasyPaisa / JazzCash • 0329-4355677</span>
+                                    <span class="text-xs font-semibold text-[#0A0A0C] tracking-wider font-mono block" id="accNumber1">03294355677</span>
                                 </div>
                                 <button 
                                     type="button"
-                                    onclick="copyToClipboard('03330654609', 'accBtn1')" 
+                                    onclick="copyToClipboard('03294355677', 'accBtn1')" 
                                     id="accBtn1"
-                                    class="bg-[#043224] hover:bg-[#02241a] text-white text-xs font-black px-3 py-1.5 rounded-lg flex items-center gap-1.5 active:scale-95 transition shadow-sm shrink-0"
+                                    class="bg-[#0A0A0C] hover:bg-[#18181C] text-[#FFC800] text-xs font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5 active:scale-95 transition shadow-sm shrink-0"
                                 >
                                     <i class="fa-regular fa-copy"></i>
                                     <span>Copy</span>
                                 </button>
                             </div>
 
-                            <p class="text-[10px] text-slate-500 italic text-center">
-                                * Transfer payment manually & share receipt screenshot on WhatsApp after placing order below.
+                            <p class="text-[10px] text-zinc-500 italic text-center">
+                                * Transfer payment & share receipt screenshot on WhatsApp after placing order below.
                             </p>
                         </div>
                     </div>
 
                     <!-- Bill Summary -->
-                    <div class="bg-[#f5ede0] rounded-2xl p-3.5 space-y-2 border border-[#e5d7c3] text-xs">
-                        <div class="flex justify-between text-slate-600">
+                    <div class="bg-white rounded-2xl p-3.5 space-y-2 border border-[#E8E2D2] text-xs">
+                        <div class="flex justify-between text-zinc-600">
                             <span>Subtotal</span>
-                            <span class="font-bold text-slate-900" id="billSubtotal">PKR 0/-</span>
+                            <span class="font-semibold text-zinc-900" id="billSubtotal">Rs. 0</span>
                         </div>
-                        <div class="flex justify-between text-slate-600">
+                        <div class="flex justify-between text-zinc-600">
                             <span class="flex items-center gap-1">
-                                Delivery Fee <span class="text-[10px] text-[#043224] font-bold bg-[#eef6f2] border border-[#a3c9b8] px-1.5 py-0.2 rounded">Standard Home Delivery</span>
+                                Delivery Fee <span class="text-[10px] text-[#0A0A0C] font-semibold bg-[#FFF8DB] border border-[#F5D76E] px-1.5 py-0.2 rounded">Standard Home Delivery</span>
                             </span>
-                            <span class="font-bold text-[#043224]">Calculated on Order</span>
+                            <span class="font-semibold text-black">Calculated on Order</span>
                         </div>
-                        <div class="pt-2 border-t border-[#e5d7c3] flex justify-between items-center">
+                        <div class="pt-2 border-t border-[#E8E2D2] flex justify-between items-center">
                             <div>
-                                <span class="font-black text-slate-900 text-sm block">Total Bill</span>
-                                <span class="text-[10px] text-slate-500">All items included</span>
+                                <span class="font-semibold text-zinc-900 text-sm block">Total Bill</span>
+                                <span class="text-[10px] text-zinc-500">All items included</span>
                             </div>
-                            <span class="font-black text-[#043224] text-lg font-display" id="billTotal">PKR 0/-</span>
+                            <span class="font-bold text-[#0A0A0C] text-base" id="billTotal">Rs. 0</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Drawer Footer Buttons -->
-            <div class="p-4 border-t border-[#e5d7c3] bg-[#f5ede0] rounded-b-[32px] sm:rounded-b-3xl" id="drawerFooterActions">
+            <div class="p-4 border-t border-[#E8E2D2] bg-[#F3EFE6] rounded-b-[32px] sm:rounded-b-3xl" id="drawerFooterActions">
                 <button 
                     onclick="submitOrderToWhatsApp()" 
                     id="submitWhatsappBtn"
-                    class="w-full bg-[#043224] hover:bg-[#02241a] text-white font-black text-sm py-4 px-4 rounded-xl shadow-lg shadow-[#043224]/25 flex items-center justify-center gap-2 active:scale-[0.98] transition"
+                    class="w-full bg-[#0A0A0C] hover:bg-[#18181C] text-[#FFC800] font-semibold text-sm py-4 px-4 rounded-xl shadow-lg flex items-center justify-center gap-2 active:scale-[0.98] transition border border-[#23232A]"
                 >
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <i class="fa-brands fa-whatsapp text-xl text-emerald-500"></i>
                     <span>Send Order via WhatsApp</span>
                 </button>
             </div>
@@ -545,403 +574,286 @@
     </div>
 
     <!-- ORDER SUCCESS MODAL -->
-    <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 p-4">
-        <div class="w-full max-w-sm bg-[#faf5e8] border border-[#e5d7c3] rounded-3xl p-6 text-center shadow-modal transform scale-95 transition-all duration-300" id="successModalCard">
-            <div class="w-16 h-16 bg-[#eef6f2] border border-[#a3c9b8] text-[#043224] rounded-full flex items-center justify-center text-3xl mx-auto mb-3 shadow-sm">
-                <i class="fa-solid fa-check"></i>
+    <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300 p-4">
+        <div class="w-full max-w-sm bg-[#FAF7EE] border border-[#E8E2D2] rounded-3xl p-6 text-center shadow-modal transform scale-95 transition-all duration-300" id="successModalCard">
+            <div class="w-16 h-16 bg-[#FFF8DB] border border-[#F5D76E] text-[#0A0A0C] rounded-full flex items-center justify-center text-3xl mx-auto mb-3 shadow-sm">
+                <i class="fa-solid fa-check text-emerald-600"></i>
             </div>
-            <h3 class="font-display font-black text-xl text-slate-900">Order Sent!</h3>
-            <p class="text-xs text-slate-600 mt-1 mb-4">Your order details were formatted and opened in WhatsApp chat for AURA manager to prepare immediately.</p>
+            <h3 class="font-semibold text-xl text-zinc-900">Order Sent!</h3>
+            <p class="text-xs text-zinc-600 mt-1 mb-4 font-normal">Your order details were formatted and opened in WhatsApp chat for WRAP CITY to prepare right away.</p>
             
-            <div class="bg-[#f5ede0] rounded-2xl p-3 text-left text-xs mb-4 border border-[#e5d7c3] font-mono space-y-1 text-slate-800" id="receiptPreviewBox">
+            <div class="bg-white rounded-2xl p-3 text-left text-xs mb-4 border border-[#E8E2D2] font-mono space-y-1 text-zinc-800" id="receiptPreviewBox">
                 <!-- Preview summary -->
             </div>
 
-            <button onclick="closeSuccessModal()" class="w-full bg-[#043224] hover:bg-[#02241a] text-white text-xs font-black py-3 rounded-xl shadow-md">
+            <button onclick="closeSuccessModal()" class="w-full bg-[#0A0A0C] hover:bg-[#18181C] text-[#FFC800] text-xs font-semibold py-3 rounded-xl shadow-md">
                 Done & Continue Browsing
             </button>
         </div>
     </div>
 
     <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-[#043224] text-white text-xs font-black px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 transform -translate-y-16 opacity-0 transition-all duration-300 pointer-events-none border border-[#02241a]">
-        <i class="fa-solid fa-circle-check text-white"></i>
-        <span id="toastMsg">Added to basket!</span>
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-[#0A0A0C] text-[#FFC800] text-xs font-semibold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 transform -translate-y-16 opacity-0 transition-all duration-300 pointer-events-none border border-[#23232A]">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toastMsg" class="text-white">Added to basket!</span>
     </div>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- 1. PRODUCT DATABASE FOR AURA HOUSE OF THINKERS ---
+        // --- 1. PRODUCT DATABASE FOR WRAP CITY ---
         const MENU_DATA = {
             categories: [
                 { id: 'all', name: 'All Menu', badge: 'Full Menu' },
-                { id: 'burgers', name: 'Burgers', badge: 'Patty & Theory' },
-                { id: 'wraps', name: 'Wraps', badge: 'Wrapped Logic' },
-                { id: 'aura_signature', name: 'Aura Signature', badge: 'Specialty Tacos' },
-                { id: 'bite_theory', name: 'Bite Theory', badge: 'Fries & Loaded' },
-                { id: 'aura_specials', name: 'Aura Specials', badge: 'Glaze Honey' },
-                { id: 'pasta_paradox', name: 'Pasta Paradox', badge: 'Alfredo & Thesis' },
-                { id: 'sandwiches', name: 'Sandwiches', badge: 'Grill & Insight' },
-                { id: 'sweet_tooth', name: 'Sweet Tooth', badge: 'Fudge Brownie' },
-                { id: 'add_ons', name: 'Add Ons', badge: 'Dips & Cheese' },
-                { id: 'thought_bar', name: 'Thought Bar', badge: 'Drinks & Teas' }
+                { id: 'wraps', name: 'Wraps', badge: 'Signature & Crunch' },
+                { id: 'fries', name: 'Fries', badge: 'Loaded & Epic' },
+                { id: 'burgers_sandwiches', name: 'Burgers & Sandwiches', badge: 'Served with Fries' },
+                { id: 'extra_toppings', name: 'Extra Topping', badge: 'Cheese & Frankies' },
+                { id: 'addons_drinks', name: 'Add-Ons & Drinks', badge: 'Upsize & Cold Drinks' }
             ],
             
             items: [
-                // === BURGERS ===
-                {
-                    id: 'zing_manifesto',
-                    category: 'burgers',
-                    name: 'Zing Manifesto',
-                    desc: 'Signature crispy zinger patty, house special sauce, fresh lettuce & melted cheese.',
-                    price: 700,
-                    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'grilled_theory',
-                    category: 'burgers',
-                    name: 'Grilled Theory Burger',
-                    desc: 'Flame-grilled juicy chicken patty infused with secret spices and herb mayo.',
-                    price: 750,
-                    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'patty_philosophy',
-                    category: 'burgers',
-                    name: 'Patty Philosophy',
-                    desc: 'Classic smashed chicken patty burger with fresh veg and flavorful dressing.',
-                    price: 460,
-                    image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80',
-                    isPopular: false,
-                    type: 'fixed'
-                },
-
                 // === WRAPS ===
                 {
-                    id: 'extreme_wrapped_logic',
+                    id: 'sig_chicken_crunch',
                     category: 'wraps',
-                    name: 'Extreme Wrapped Logic',
-                    desc: 'Loaded crispy chicken wrap with rich sauces, jalapenos, and melted cheese.',
-                    price: 860,
+                    name: 'Signature Chicken Crunch',
+                    desc: '4 chicken tenders, endless flavor wrapped to perfection.',
+                    price: 650,
                     image: 'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=400&q=80',
                     isPopular: true,
-                    type: 'fixed'
+                    type: 'variant',
+                    variants: [
+                        { name: 'Regular', price: 650 },
+                        { name: 'Large', price: 780 }
+                    ]
                 },
                 {
-                    id: 'crunch_code_wrap',
+                    id: 'majnoon_wrap',
                     category: 'wraps',
-                    name: 'Crunch Code Wrap',
-                    desc: 'Crunchy chicken strips wrapped in a soft tortilla with spicy garlic mayo.',
-                    price: 750,
+                    name: 'Majnoon Wrap',
+                    desc: 'Grilled chicken chunks with a saucy Arabian twist — majnoon in every bite!',
+                    price: 690,
+                    image: 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=400&q=80',
+                    isPopular: true,
+                    type: 'variant',
+                    variants: [
+                        { name: 'Regular', price: 690 },
+                        { name: 'Large', price: 820 }
+                    ]
+                },
+                {
+                    id: 'frank_twister',
+                    category: 'wraps',
+                    name: 'Frank Twister',
+                    desc: 'Chicken sausages with a flavor twist — Franktwister Wrap.',
+                    price: 650,
                     image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=400&q=80',
                     isPopular: false,
-                    type: 'fixed'
+                    type: 'variant',
+                    variants: [
+                        { name: 'Regular', price: 650 },
+                        { name: 'Large', price: 780 }
+                    ]
                 },
 
-                // === AURA SIGNATURE ===
+                // === FRIES ===
                 {
-                    id: 'visionary_tacos',
-                    category: 'aura_signature',
-                    name: 'Visionary Mexican Tacos',
-                    desc: 'Authentic Mexican style tacos packed with seasoned chicken, salsa & special cream.',
-                    price: 870,
-                    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=400&q=80',
+                    id: 'majnoon_fries',
+                    category: 'fries',
+                    name: 'Majnoon Fries',
+                    desc: 'Crispy golden fries topped with grilled chicken — simply loaded.',
+                    price: 590,
+                    image: 'https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=400&q=80',
                     isPopular: true,
-                    type: 'fixed'
+                    type: 'variant',
+                    variants: [
+                        { name: 'Regular', price: 590 },
+                        { name: 'Large', price: 740 }
+                    ]
                 },
-
-                // === BITE THEORY (FRIES & SIDES) ===
                 {
-                    id: 'solo_fries',
-                    category: 'bite_theory',
-                    name: 'Solo Fries',
-                    desc: 'Crispy golden salted french fries portion.',
-                    price: 370,
+                    id: 'al_tabahi_fries',
+                    category: 'fries',
+                    name: 'Al-Tabahi Fries',
+                    desc: 'Loaded fries topped with crispy chicken tenders — leveled up.',
+                    price: 590,
+                    image: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=400&q=80',
+                    isPopular: true,
+                    type: 'variant',
+                    variants: [
+                        { name: 'Regular', price: 590 },
+                        { name: 'Large', price: 840 }
+                    ]
+                },
+                {
+                    id: 'builder_fries',
+                    category: 'fries',
+                    name: 'Builder Fries',
+                    desc: 'Fries loaded with savory chicken sausages — simply epic.',
+                    price: 590,
+                    image: 'images/fries.jpg',
+                    isPopular: false,
+                    type: 'variant',
+                    variants: [
+                        { name: 'Regular', price: 590 },
+                        { name: 'Large', price: 740 }
+                    ]
+                },
+                {
+                    id: 'plain_salted_fries',
+                    category: 'fries',
+                    name: 'Plain Salted Fries',
+                    desc: 'Golden crispy fries served with delicious Dip Sauce.',
+                    price: 360,
                     image: 'https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=400&q=80',
                     isPopular: false,
                     type: 'fixed'
                 },
+
+                // === BURGERS & SANDWICHES ===
                 {
-                    id: 'masala_rush_fries',
-                    category: 'bite_theory',
-                    name: 'Masala Rush Fries',
-                    desc: 'Golden fries tossed in spicy special chaat masala blend.',
-                    price: 400,
-                    image: 'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=400&q=80',
+                    id: 'grilled_sandwich',
+                    category: 'burgers_sandwiches',
+                    name: 'Grilled Sandwich',
+                    desc: 'Grilled to perfection, packed with flavor. Served with Fries!',
+                    price: 690,
+                    image: 'images/sandwich.jpg',
+                    isPopular: true,
+                    type: 'fixed'
+                },
+                {
+                    id: 'mighty_zinger_burger',
+                    category: 'burgers_sandwiches',
+                    name: 'Mighty Zinger Burger',
+                    desc: 'Double the Zinger, Double the size & flavor. Served with Fries!',
+                    price: 820,
+                    image: 'images/zinger_burger.jpg',
+                    isPopular: true,
+                    type: 'fixed'
+                },
+                {
+                    id: 'fillet_burger',
+                    category: 'burgers_sandwiches',
+                    name: 'Fillet Burger',
+                    desc: 'Chicken Fillet Patty, crisp iceberg & specialty sauces. Served with Fries!',
+                    price: 620,
+                    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80',
                     isPopular: false,
                     type: 'fixed'
                 },
                 {
-                    id: 'mayo_glow_fries',
-                    category: 'bite_theory',
-                    name: 'Mayo Glow Fries',
-                    desc: 'Crispy fries smothered in rich creamy garlic mayo sauce.',
-                    price: 450,
-                    image: 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=400&q=80',
+                    id: 'chicken_plater',
+                    category: 'burgers_sandwiches',
+                    name: 'Chicken Plater',
+                    desc: 'Grilled juicy chicken, perfectly plated. Served with Fries!',
+                    price: 860,
+                    image: 'images/broast.jpg',
                     isPopular: true,
                     type: 'fixed'
                 },
                 {
-                    id: 'cheese_theory_fries',
-                    category: 'bite_theory',
-                    name: 'Cheese Theory Fries',
-                    desc: 'Loaded fries topped with melted liquid cheese and herbs.',
-                    price: 800,
-                    image: 'https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=400&q=80',
+                    id: 'zinger_burger',
+                    category: 'burgers_sandwiches',
+                    name: 'Zinger Burger',
+                    desc: 'Crunchy, juicy and packed with flavor. Served with Fries!',
+                    price: 620,
+                    image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80',
                     isPopular: true,
                     type: 'fixed'
                 },
                 {
-                    id: 'crunch_loaded_fries',
-                    category: 'bite_theory',
-                    name: 'Crunch Loaded Fries',
-                    desc: 'Crispy fries loaded with chopped chicken crunch, jalapeños & signature sauces.',
-                    price: 650,
-                    image: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=400&q=80',
+                    id: 'classic_cheese_beef_burger',
+                    category: 'burgers_sandwiches',
+                    name: 'Classic Cheese Beef Burger',
+                    desc: 'Classic beef, melted cheese — burger perfection. Served with Fries!',
+                    price: 690,
+                    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80',
                     isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'hot_shot_theory',
-                    category: 'bite_theory',
-                    name: 'Hot Shot Theory (6 Pcs)',
-                    desc: 'Bite-sized crispy chicken hot shots served with dip sauce.',
-                    price: 370,
-                    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=400&q=80',
-                    isPopular: false,
-                    type: 'fixed'
-                },
-                {
-                    id: 'aura_strips',
-                    category: 'bite_theory',
-                    name: 'Aura Strips (4 Pcs)',
-                    desc: '4 pieces of golden fried tender chicken strips.',
-                    price: 750,
-                    image: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'fries_overload',
-                    category: 'bite_theory',
-                    name: 'Fries Overload',
-                    desc: 'Ultimate fries basket overloaded with toppings, cheese & chicken bits.',
-                    price: 650,
-                    image: 'https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-
-                // === AURA SPECIALS ===
-                {
-                    id: 'glaze_theory',
-                    category: 'aura_specials',
-                    name: 'Glaze Theory (Honey) 4 Pcs',
-                    desc: '4 pieces of crispy fried chicken glazed with sweet & spicy honey sauce.',
-                    price: 850,
-                    image: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-
-                // === PASTA PARADOX ===
-                {
-                    id: 'alfredo_fettuccine',
-                    category: 'pasta_paradox',
-                    name: 'Alfredo Fettuccine Dream',
-                    desc: 'Rich creamy Alfredo pasta with fettuccine, grilled chicken & parmesan cheese.',
-                    price: 700,
-                    image: 'https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'cheesy_chicken_thesis',
-                    category: 'pasta_paradox',
-                    name: 'Cheesy Chicken Thesis',
-                    desc: 'Baked pasta loaded with grilled chicken, mozzarella cheese & herbs.',
-                    price: 850,
-                    image: 'https://images.unsplash.com/photo-1555949258-eb67b28080b1?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-
-                // === SANDWICHES ===
-                {
-                    id: 'melted_sandwiche',
-                    category: 'sandwiches',
-                    name: 'Melted Sandwiche',
-                    desc: 'Multi-layer toasted sandwich stuffed with melted cheese & tender chicken.',
-                    price: 850,
-                    image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'grilled_insight',
-                    category: 'sandwiches',
-                    name: 'The Grilled Insight',
-                    desc: 'Perfectly grilled club sandwich with smoked chicken, egg & cheese.',
-                    price: 770,
-                    image: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'club_argument',
-                    category: 'sandwiches',
-                    name: 'The Club Argument',
-                    desc: 'Classic 3-layer club sandwich served with crispy fries.',
-                    price: 490,
-                    image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=400&q=80',
-                    isPopular: false,
-                    type: 'fixed'
-                },
-
-                // === SWEET TOOTH ===
-                {
-                    id: 'fudge_brownie',
-                    category: 'sweet_tooth',
-                    name: 'Fudge Brownie',
-                    desc: 'Warm, gooey chocolate fudge brownie with rich cocoa finish.',
-                    price: 390,
-                    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-
-                // === ADD ONS ===
-                {
-                    id: 'dip_sauce',
-                    category: 'add_ons',
-                    name: 'Dip Sauce',
-                    desc: 'Signature garlic mayo, spicy dip, honey mustard or cheese dip cup.',
-                    price: 100,
-                    image: 'https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=400&q=80',
-                    isPopular: false,
                     type: 'variant',
                     variants: [
-                        { name: 'Garlic Mayo Dip', price: 100 },
-                        { name: 'Spicy Chili Dip', price: 100 },
-                        { name: 'Honey Mustard Dip', price: 100 },
-                        { name: 'Cheese Dip Cup', price: 100 }
+                        { name: 'Single Patty', price: 690 },
+                        { name: 'Double Beef Patty (+Add a Beef Patty)', price: 910 }
                     ]
                 },
                 {
-                    id: 'jalapenos_addon',
-                    category: 'add_ons',
-                    name: 'Jalapeños Extra',
-                    desc: 'Extra portion of sliced jalapeno peppers.',
-                    price: 60,
-                    image: 'https://images.unsplash.com/photo-1597362925123-77861d3fbac7?auto=format&fit=crop&w=400&q=80',
+                    id: 'chicken_salad_box',
+                    category: 'burgers_sandwiches',
+                    name: 'Chicken Salad Box',
+                    desc: 'Fresh, flavorful and perfectly healthy with grilled chicken slices.',
+                    price: 680,
+                    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=400&q=80',
                     isPopular: false,
                     type: 'fixed'
                 },
+
+                // === EXTRA TOPPINGS ===
                 {
-                    id: 'cheese_slice_addon',
-                    category: 'add_ons',
-                    name: 'Cheese Slice Extra',
-                    desc: 'Extra melted cheddar cheese slice.',
-                    price: 100,
+                    id: 'extra_cheese',
+                    category: 'extra_toppings',
+                    name: 'Cheese Extra',
+                    desc: 'Melted delicious extra cheese topping slice.',
+                    price: 80,
                     image: 'https://images.unsplash.com/photo-1552767059-ce182ead8c1b?auto=format&fit=crop&w=400&q=80',
                     isPopular: false,
                     type: 'fixed'
                 },
-
-                // === THOUGHT BAR (BEVERAGES & TEA) ===
                 {
-                    id: 'rose_margarita',
-                    category: 'thought_bar',
-                    name: 'Rose Margarita',
-                    desc: 'Refreshing icy drink infused with rose syrup and lemon lime.',
-                    price: 400,
-                    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'mint_margarita',
-                    category: 'thought_bar',
-                    name: 'Mint Margarita',
-                    desc: 'Blended ice mint margarita with fresh lemon juice.',
-                    price: 400,
-                    image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'mint_lemonade',
-                    category: 'thought_bar',
-                    name: 'Mint Lemonade',
-                    desc: 'Chilled mint lemonade beverage.',
-                    price: 300,
-                    image: 'https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=400&q=80',
-                    isPopular: false,
-                    type: 'fixed'
-                },
-                {
-                    id: 'fresh_lime',
-                    category: 'thought_bar',
-                    name: 'Fresh Lime',
-                    desc: 'Classic fresh lime soda water.',
-                    price: 300,
-                    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80',
-                    isPopular: false,
-                    type: 'fixed'
-                },
-                {
-                    id: 'karak_tea',
-                    category: 'thought_bar',
-                    name: 'Karak Tea',
-                    desc: 'Strong, aromatic traditional Karak Chai.',
-                    price: 250,
-                    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=400&q=80',
-                    isPopular: true,
-                    type: 'fixed'
-                },
-                {
-                    id: 'cardamom_tea',
-                    category: 'thought_bar',
-                    name: 'Cardamom Tea',
-                    desc: 'Fragrant cardamom (Elaichi) infused hot tea.',
-                    price: 280,
-                    image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=400&q=80',
-                    isPopular: false,
-                    type: 'fixed'
-                },
-                {
-                    id: 'green_tea',
-                    category: 'thought_bar',
-                    name: 'Green Tea',
-                    desc: 'Healthy hot green tea brew.',
-                    price: 250,
-                    image: 'https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?auto=format&fit=crop&w=400&q=80',
-                    isPopular: false,
-                    type: 'fixed'
-                },
-                {
-                    id: 'soft_drink_350ml',
-                    category: 'thought_bar',
-                    name: 'Soft Drinks 350ml',
-                    desc: 'Chilled 350ml carbonated soft drink.',
+                    id: 'extra_frankies',
+                    category: 'extra_toppings',
+                    name: 'Frankies Extra',
+                    desc: 'Extra portion of savory sliced Frankies sausage.',
                     price: 150,
-                    image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80',
+                    image: 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=400&q=80',
                     isPopular: false,
                     type: 'fixed'
                 },
                 {
-                    id: 'water_bottle_500ml',
-                    category: 'thought_bar',
-                    name: 'Water Bottle 500ml',
-                    desc: '500ml mineral water bottle.',
-                    price: 100,
-                    image: 'https://images.unsplash.com/photo-1560023907-5f339617ea30?auto=format&fit=crop&w=400&q=80',
+                    id: 'extra_2x_cheese',
+                    category: 'extra_toppings',
+                    name: '2x Cheese Extra',
+                    desc: 'Double portion of melted premium cheese.',
+                    price: 140,
+                    image: 'https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=400&q=80',
+                    isPopular: true,
+                    type: 'fixed'
+                },
+                {
+                    id: 'extra_dip_sauce',
+                    category: 'extra_toppings',
+                    name: 'Dip Sauce Extra',
+                    desc: 'Signature house special dipping sauce cup.',
+                    price: 80,
+                    image: 'https://images.unsplash.com/photo-1472476443507-c7a5948772fc?auto=format&fit=crop&w=400&q=80',
                     isPopular: false,
                     type: 'fixed'
+                },
+
+                // === ADD-ONS & DRINKS ===
+                {
+                    id: 'upsize_meal',
+                    category: 'addons_drinks',
+                    name: 'UPSIZE MEAL',
+                    desc: 'Upsize your order with Plain Fries + Chilled Drink!',
+                    price: 250,
+                    image: 'https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=400&q=80',
+                    isPopular: true,
+                    type: 'fixed'
+                },
+                {
+                    id: 'cold_drink_345ml',
+                    category: 'addons_drinks',
+                    name: '345ML Cold Drink',
+                    desc: 'Chilled 345ml soft drink bottle.',
+                    price: 90,
+                    image: 'images/drink.jpg',
+                    isPopular: false,
+                    type: 'variant',
+                    variants: [
+                        { name: 'Coke (345ml)', price: 90 },
+                        { name: 'Sprite (345ml)', price: 90 },
+                        { name: 'Fanta (345ml)', price: 90 },
+                        { name: 'Dew (345ml)', price: 90 }
+                    ]
                 }
             ]
         };
@@ -953,13 +865,11 @@
         
         // Modal state
         let activeModalItem = null;
-        let selectedSize = null;
-        let selectedFlavor = null;
         let selectedVariant = null;
         let modalQty = 1;
 
-        // Business configuration for AURA House of Thinkers
-        const WHATSAPP_NUMBER = "923330654609";
+        // Business configuration for WRAP CITY
+        const WHATSAPP_NUMBER = "923294355677";
 
         // --- 3. INITIALIZATION ---
         document.addEventListener('DOMContentLoaded', () => {
@@ -982,10 +892,10 @@
             nav.innerHTML = categoriesToRender.map(cat => `
                 <button 
                     onclick="selectCategory('${cat.id}')"
-                    class="category-pill shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-200 border flex items-center gap-1.5 ${
+                    class="category-pill shrink-0 px-3.5 py-2 rounded-xl text-xs transition-all duration-200 border flex items-center gap-1.5 ${
                         currentCategory === cat.id 
-                            ? 'active bg-[#043224] text-[#fefcf7] border-[#043224] shadow-md' 
-                            : 'bg-[#f5ebd8] text-slate-800 border-[#dfcfb5] hover:border-[#043224]'
+                            ? 'active bg-[#0A0A0C] text-[#FFC800] border-[#0A0A0C] shadow-md font-semibold' 
+                            : 'bg-white text-zinc-800 border-[#E8E2D2] hover:border-[#FFC800] font-normal'
                     }"
                 >
                     <span>${cat.name}</span>
@@ -1072,9 +982,9 @@
             emptyState.classList.add('hidden');
 
             container.innerHTML = filtered.map(item => `
-                <div class="glass-card-light rounded-2xl p-3 shadow-sm hover:shadow-md transition-all duration-200 flex items-center gap-3">
+                <div class="glass-card-light rounded-2xl p-3 shadow-sm hover:shadow-md transition-all duration-200 flex items-center gap-3 border border-[#E8E2D2]">
                     <!-- Image -->
-                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden shrink-0 bg-slate-100 border border-[#e5d7c3]">
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden shrink-0 bg-zinc-100 border border-[#E8E2D2]">
                         <img 
                             src="${item.image}" 
                             alt="${item.name}" 
@@ -1082,7 +992,7 @@
                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=300&q=80'"
                         >
                         ${item.isPopular ? `
-                            <span class="absolute top-1 left-1 bg-[#043224] text-[#fefcf7] text-[9px] font-black uppercase px-1.5 py-0.5 rounded shadow-sm">
+                            <span class="absolute top-1 left-1 bg-[#0A0A0C] text-[#FFC800] text-[9px] font-semibold uppercase px-1.5 py-0.5 rounded shadow-sm border border-[#23232A]">
                                 POPULAR
                             </span>
                         ` : ''}
@@ -1091,25 +1001,25 @@
                     <!-- Details -->
                     <div class="flex-1 min-w-0 flex flex-col justify-between py-0.5">
                         <div>
-                            <h3 class="font-display font-bold text-slate-900 text-sm sm:text-base leading-snug line-clamp-1">
+                            <h3 class="font-semibold text-zinc-900 text-sm sm:text-base leading-snug line-clamp-1">
                                 ${item.name}
                             </h3>
-                            <p class="text-[11px] text-slate-500 line-clamp-2 mt-0.5">
+                            <p class="text-[11px] text-zinc-500 font-normal line-clamp-2 mt-0.5">
                                 ${item.desc}
                             </p>
                         </div>
 
-                        <div class="mt-2.5 flex items-center justify-between">
+                        <div class="mt-2 flex items-center justify-between">
                             <div>
-                                <span class="text-[10px] text-slate-400 font-semibold block uppercase">Price</span>
-                                <span class="text-sm sm:text-base font-black text-[#043224] font-display">
-                                    ${item.type === 'variant' ? 'From ' : ''}PKR ${item.price.toLocaleString()}/-
+                                <span class="text-[10px] text-zinc-400 font-normal block uppercase tracking-wide">Price</span>
+                                <span class="text-xs sm:text-sm font-semibold text-zinc-900">
+                                    ${item.type === 'variant' ? 'From ' : ''}Rs. ${item.price.toLocaleString()}
                                 </span>
                             </div>
 
                             <button 
                                 onclick="openItemModalById('${item.id}')"
-                                class="bg-[#043224] hover:bg-[#02241a] text-[#fefcf7] text-xs font-black px-3 py-1.5 rounded-xl shadow-sm active:scale-95 transition flex items-center gap-1"
+                                class="bg-[#0A0A0C] hover:bg-[#18181C] text-[#FFC800] text-xs font-semibold px-3 py-1.5 rounded-xl shadow-sm active:scale-95 transition flex items-center gap-1 border border-[#23232A]"
                             >
                                 <i class="fa-solid fa-plus text-[10px]"></i>
                                 <span>Add</span>
@@ -1162,20 +1072,20 @@
 
                 let html = `
                     <div>
-                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Select Flavor / Option:</h4>
+                        <h4 class="text-xs font-semibold text-zinc-800 uppercase tracking-wider mb-2">Select Size / Option:</h4>
                         <div class="space-y-2">
                             ${item.variants.map((v, idx) => `
                                 <button 
                                     onclick="selectModalVariant(${idx})" 
                                     id="modalVariantBtn_${idx}"
-                                    class="variant-option-btn w-full text-left p-3 rounded-xl border text-xs font-bold transition flex items-center justify-between ${
+                                    class="variant-option-btn w-full text-left p-3 rounded-xl border text-xs font-normal transition flex items-center justify-between ${
                                         idx === 0 
-                                            ? 'border-[#043224] bg-[#eef6f2] text-[#043224]' 
-                                            : 'border-[#e5d7c3] bg-[#fefcf7] text-slate-800 hover:border-[#043224]'
+                                            ? 'border-[#0A0A0C] bg-[#FFF8DB] text-[#0A0A0C] font-semibold' 
+                                            : 'border-[#E8E2D2] bg-white text-zinc-800 hover:border-[#0A0A0C]'
                                     }"
                                 >
                                     <span>${v.name}</span>
-                                    <span class="font-black text-[#043224] text-sm">PKR ${v.price}/-</span>
+                                    <span class="font-semibold text-[#0A0A0C] text-xs sm:text-sm">Rs. ${v.price}</span>
                                 </button>
                             `).join('')}
                         </div>
@@ -1186,9 +1096,9 @@
             } else {
                 // Fixed item
                 container.innerHTML = `
-                    <div class="bg-[#f5ede0] border border-[#e5d7c3] rounded-xl p-3 text-xs text-slate-600">
-                        <span class="font-bold text-slate-900 block mb-1">Standard Portion</span>
-                        Freshly prepared at AURA House of Thinkers and delivered hot to your doorstep!
+                    <div class="bg-white border border-[#E8E2D2] rounded-xl p-3 text-xs text-zinc-600 font-normal">
+                        <span class="font-semibold text-zinc-900 block mb-1">Standard Portion</span>
+                        Freshly prepared at WRAP CITY and delivered hot and crunchy to your doorstep!
                     </div>
                 `;
             }
@@ -1218,9 +1128,9 @@
 
             document.querySelectorAll('.variant-option-btn').forEach((btn, i) => {
                 if (i === index) {
-                    btn.className = 'variant-option-btn w-full text-left p-3 rounded-xl border text-xs font-bold transition flex items-center justify-between border-[#043224] bg-[#eef6f2] text-[#043224]';
+                    btn.className = 'variant-option-btn w-full text-left p-3 rounded-xl border text-xs transition flex items-center justify-between border-[#0A0A0C] bg-[#FFF8DB] text-[#0A0A0C] font-semibold';
                 } else {
-                    btn.className = 'variant-option-btn w-full text-left p-3 rounded-xl border text-xs font-bold transition flex items-center justify-between border-[#e5d7c3] bg-[#fefcf7] text-slate-800 hover:border-[#043224]';
+                    btn.className = 'variant-option-btn w-full text-left p-3 rounded-xl border text-xs font-normal transition flex items-center justify-between border-[#E8E2D2] bg-white text-zinc-800 hover:border-[#0A0A0C]';
                 }
             });
 
@@ -1245,7 +1155,7 @@
         function updateModalPriceDisplay() {
             const unitPrice = calculateModalItemUnitPrice();
             const total = unitPrice * modalQty;
-            document.getElementById('modalFinalPrice').textContent = `PKR ${total.toLocaleString()}/-`;
+            document.getElementById('modalFinalPrice').textContent = `Rs. ${total.toLocaleString()}`;
         }
 
         function confirmAddToCart() {
@@ -1257,8 +1167,7 @@
 
             if (activeModalItem.type === 'variant' && selectedVariant) {
                 price = selectedVariant.price;
-                titleName = selectedVariant.name;
-                optionsText = '';
+                optionsText = selectedVariant.name;
             }
 
             const cartItemId = `${activeModalItem.id}_${selectedVariant ? selectedVariant.name : ''}`;
@@ -1286,43 +1195,51 @@
         // --- 8. CART & STORAGE LOGIC ---
         function saveCartToStorage() {
             try {
-                localStorage.setItem('aura_thinkers_cart', JSON.stringify(cart));
+                localStorage.setItem('wrap_city_cart', JSON.stringify(cart));
             } catch (e) {}
         }
 
         function loadCartFromStorage() {
             try {
-                const saved = localStorage.getItem('aura_thinkers_cart');
+                const saved = localStorage.getItem('wrap_city_cart');
                 if (saved) {
                     cart = JSON.parse(saved);
                 }
-            } catch (e) {}
+            } catch (e) {
+                cart = [];
+            }
         }
 
         function updateCartUI() {
             const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
             const totalPrice = cart.reduce((acc, item) => acc + (item.unitPrice * item.qty), 0);
 
-            // Update floating cart bar
+            // Update Floating Bar
             const floatingBar = document.getElementById('floatingCartBar');
             const floatingBadge = document.getElementById('floatingCartBadge');
             const floatingTotal = document.getElementById('floatingCartTotal');
 
-            floatingBadge.textContent = totalQty;
-            floatingTotal.textContent = `PKR ${totalPrice.toLocaleString()}/-`;
-
             if (totalQty > 0) {
                 floatingBar.classList.remove('translate-y-24', 'opacity-0');
+                floatingBadge.textContent = totalQty;
+                floatingBadge.classList.add('cart-badge-anim');
+                setTimeout(() => floatingBadge.classList.remove('cart-badge-anim'), 300);
+                floatingTotal.textContent = `Rs. ${totalPrice.toLocaleString()}`;
             } else {
                 floatingBar.classList.add('translate-y-24', 'opacity-0');
             }
 
-            // Update Drawer items list
-            document.getElementById('drawerItemCountText').textContent = `${totalQty} item${totalQty !== 1 ? 's' : ''} selected`;
-            
+            // Update Drawer View
             const cartItemsList = document.getElementById('cartItemsList');
             const emptyCartView = document.getElementById('emptyCartView');
             const checkoutSection = document.getElementById('checkoutFormSection');
+            const drawerCountText = document.getElementById('drawerItemCountText');
+            const billSubtotal = document.getElementById('billSubtotal');
+            const billTotal = document.getElementById('billTotal');
+
+            drawerCountText.textContent = `${totalQty} item${totalQty === 1 ? '' : 's'} selected`;
+            billSubtotal.textContent = `Rs. ${totalPrice.toLocaleString()}`;
+            billTotal.textContent = `Rs. ${totalPrice.toLocaleString()}`;
 
             if (cart.length === 0) {
                 cartItemsList.innerHTML = '';
@@ -1333,36 +1250,35 @@
                 checkoutSection.classList.remove('hidden');
 
                 cartItemsList.innerHTML = cart.map((item, index) => `
-                    <div class="bg-[#f5ede0] rounded-xl p-3 border border-[#e5d7c3] flex items-center justify-between gap-2 text-xs">
-                        <div class="flex-1 min-w-0">
-                            <h5 class="font-bold text-slate-900 truncate">${item.name}</h5>
-                            ${item.optionsText ? `<p class="text-[10px] text-[#043224] font-medium">${item.optionsText}</p>` : ''}
-                            <div class="text-xs font-black text-slate-900 mt-0.5">
-                                PKR ${(item.unitPrice * item.qty).toLocaleString()}/-
-                            </div>
+                    <div class="bg-white rounded-xl p-3 border border-[#E8E2D2] flex items-center justify-between gap-2 shadow-sm">
+                        <div class="min-w-0 flex-1">
+                            <h4 class="font-semibold text-xs text-zinc-900 truncate">${item.name}</h4>
+                            ${item.optionsText ? `<span class="text-[10px] text-zinc-500 block font-normal">Size: ${item.optionsText}</span>` : ''}
+                            <span class="text-xs font-semibold text-[#0A0A0C]">Rs. ${(item.unitPrice * item.qty).toLocaleString()}</span>
                         </div>
 
-                        <!-- Quantity control -->
-                        <div class="flex items-center bg-[#fefcf7] rounded-lg border border-[#dfcfb5] p-0.5 shadow-sm shrink-0">
-                            <button onclick="updateCartItemQty(${index}, -1)" class="w-6 h-6 rounded bg-[#f3ead8] text-slate-800 flex items-center justify-center text-[10px] font-bold">
+                        <!-- Quantity Controller -->
+                        <div class="flex items-center bg-[#FAF7EE] rounded-lg border border-[#E8E2D2] p-0.5">
+                            <button onclick="updateItemQuantity(${index}, -1)" class="w-6 h-6 rounded bg-white text-zinc-800 flex items-center justify-center text-[10px] font-semibold active:scale-95 shadow-xs">
                                 <i class="fa-solid fa-minus"></i>
                             </button>
-                            <span class="w-6 text-center font-bold text-xs text-[#043224]">${item.qty}</span>
-                            <button onclick="updateCartItemQty(${index}, 1)" class="w-6 h-6 rounded bg-[#043224] text-white flex items-center justify-center text-[10px] font-bold">
+                            <span class="w-6 text-center text-xs font-semibold text-[#0A0A0C]">${item.qty}</span>
+                            <button onclick="updateItemQuantity(${index}, 1)" class="w-6 h-6 rounded bg-[#0A0A0C] text-[#FFC800] flex items-center justify-center text-[10px] font-semibold active:scale-95 shadow-xs">
                                 <i class="fa-solid fa-plus"></i>
                             </button>
                         </div>
+
+                        <!-- Remove Button -->
+                        <button onclick="removeItemFromCart(${index})" class="text-zinc-400 hover:text-rose-500 text-xs p-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
                     </div>
                 `).join('');
             }
-
-            // Update Bill Summary
-            document.getElementById('billSubtotal').textContent = `PKR ${totalPrice.toLocaleString()}/-`;
-            document.getElementById('billTotal').textContent = `PKR ${totalPrice.toLocaleString()}/-`;
         }
 
-        function updateCartItemQty(index, delta) {
-            if (index < 0 || index >= cart.length) return;
+        function updateItemQuantity(index, delta) {
+            if (!cart[index]) return;
             cart[index].qty += delta;
             if (cart[index].qty <= 0) {
                 cart.splice(index, 1);
@@ -1371,8 +1287,14 @@
             updateCartUI();
         }
 
-        function openCartDrawer() {
+        function removeItemFromCart(index) {
+            cart.splice(index, 1);
+            saveCartToStorage();
             updateCartUI();
+        }
+
+        // --- 9. DRAWER MODAL ACTIONS ---
+        function openCartDrawer() {
             const drawer = document.getElementById('cartDrawer');
             const card = document.getElementById('cartDrawerCard');
             drawer.classList.remove('pointer-events-none', 'opacity-0');
@@ -1389,10 +1311,9 @@
             }, 300);
         }
 
-        // --- 9. PAYMENT METHOD LOGIC ---
         function handlePaymentChange(val) {
             const card = document.getElementById('onlinePaymentCard');
-            if (val !== 'Cash on Delivery') {
+            if (val.includes('Transfer') || val.includes('EasyPaisa') || val.includes('JazzCash')) {
                 card.classList.remove('hidden');
             } else {
                 card.classList.add('hidden');
@@ -1404,10 +1325,10 @@
                 const btn = document.getElementById(btnId);
                 const orig = btn.innerHTML;
                 btn.innerHTML = `<i class="fa-solid fa-check"></i><span>Copied!</span>`;
-                btn.classList.replace('bg-[#043224]', 'bg-[#02241a]');
+                btn.classList.replace('bg-[#0A0A0C]', 'bg-[#18181C]');
                 setTimeout(() => {
                     btn.innerHTML = orig;
-                    btn.classList.replace('bg-[#02241a]', 'bg-[#043224]');
+                    btn.classList.replace('bg-[#18181C]', 'bg-[#0A0A0C]');
                 }, 2000);
             });
         }
@@ -1431,8 +1352,8 @@
 
             const totalPrice = cart.reduce((acc, item) => acc + (item.unitPrice * item.qty), 0);
 
-            // Construct clean WhatsApp text
-            let message = `*NEW ORDER - AURA*\n`;
+            // Construct clean WhatsApp order text for Wrap City
+            let message = `*NEW ORDER - WRAP CITY*\n`;
             message += `----------------------------\n`;
             message += `*ORDER ITEMS:*\n`;
 
@@ -1441,11 +1362,11 @@
                 if (item.optionsText) {
                     message += `   _(${item.optionsText})_\n`;
                 }
-                message += `   Price: PKR ${(item.unitPrice * item.qty).toLocaleString()}/-\n`;
+                message += `   Price: Rs. ${(item.unitPrice * item.qty).toLocaleString()}\n`;
             });
 
             message += `----------------------------\n`;
-            message += `*TOTAL BILL:* PKR ${totalPrice.toLocaleString()}/-\n`;
+            message += `*TOTAL BILL:* Rs. ${totalPrice.toLocaleString()}\n`;
             message += `----------------------------\n`;
             message += `*DELIVERY ADDRESS:*\n${address}\n\n`;
 
@@ -1455,7 +1376,7 @@
 
             message += `*PAYMENT METHOD:* ${payment}\n`;
             message += `----------------------------\n`;
-            message += `_Sent via AURA Digital Menu_`;
+            message += `_Sent via WRAP CITY Digital Menu_`;
 
             // Open WhatsApp link
             const encodedMsg = encodeURIComponent(message);
@@ -1467,7 +1388,7 @@
                 <div><strong>Delivery Address:</strong> ${address}</div>
                 <div><strong>Payment:</strong> ${payment}</div>
                 <div><strong>Total Items:</strong> ${cart.length}</div>
-                <div class="text-[#043224] font-bold"><strong>Total Bill:</strong> PKR ${totalPrice.toLocaleString()}/-</div>
+                <div class="text-black font-semibold"><strong>Total Bill:</strong> Rs. ${totalPrice.toLocaleString()}</div>
             `;
 
             closeCartDrawer();
